@@ -1,4 +1,15 @@
-/* Copyright 2018 Anirudh Topiwala */
+/**
+ *  @file    talker.cpp
+ *  @author  Anirudh Topiwala
+ *  @copyright BSD License
+ *
+ *  @brief Implementing publisher and subscriber node
+ *
+ *  @section DESCRIPTION
+ *
+ *  This program defines the publisher
+ *
+ */
 #include <sstream>
 #include "ros/ros.h"
 #include "std_msgs/String.h"
@@ -43,7 +54,7 @@ int main(int argc, char **argv) {
    * than we can send them, the number here specifies how many messages to
    * buffer up before throwing some away.
    */
-  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
+  auto chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
 
   ros::Rate loop_rate(10);
 

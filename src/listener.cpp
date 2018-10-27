@@ -1,4 +1,15 @@
-/* Copyright 2018 Anirudh Topiwala */
+/**
+ *  @file    listener.cpp
+ *  @author  Anirudh Topiwala
+ *  @copyright BSD License
+ *
+ *  @brief Implementing publisher and subscriber node
+ *
+ *  @section DESCRIPTION
+ *
+ *  This program defines the subscriber
+ *
+ */
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
@@ -44,7 +55,7 @@ int main(int argc, char **argv) {
    * is the number of messages that will be buffered up before beginning to throw
    * away the oldest ones.
    */
-  ros::Subscriber sub = n.subscribe("chatter", 1000, chatterCallback);
+  auto sub = n.subscribe("chatter", 1000, chatterCallback);
 
   /**
    * ros::spin() will enter a loop, pumping callbacks.  With this version, all
