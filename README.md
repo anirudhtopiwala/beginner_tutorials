@@ -40,19 +40,23 @@ catkin_make
 
 After following the build instructions:
 
-Set environment vairables and run roscore in a new terminal:
+Run roscore in a new terminal:
 ```
 source devel/setup.bash
 roscore
 ```
 
-Set environment variables and run talker node from a new terminal:
+Then run talker node from a new terminal:
 ```
 source devel/setup.bash
 rosrun beginner_tutorials talker
 ```
-Set environment variables and run listener node from a new terminal:
+Finally run listener node from a new terminal:
 ```
 source devel/setup.bash
 rosrun beginner_tutorials listener
 ```
+On running all the three code blocks above we will see the outputs as seen below.
+<p align="center">
+<img src="https://github.com/anirudhtopiwala/beginner_tutorials/blob/master/output.png">
+</p>
