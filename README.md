@@ -40,18 +40,18 @@ catkin_make
 
 After following the build instructions:
 
-Run roscore in a new terminal:
+Run roscore in a new terminal keeping path as your current workspace:
 ```
 source devel/setup.bash
 roscore
 ```
 
-Then run talker node from a new terminal:
+Then run talker node from a new terminal keeping path as your current workspace:
 ```
 source devel/setup.bash
 rosrun beginner_tutorials talker
 ```
-Finally run listener node from a new terminal:
+Finally run listener node from a new terminal keeping path as your current workspace:
 ```
 source devel/setup.bash
 rosrun beginner_tutorials listener
