@@ -38,7 +38,19 @@ catkin_make
 
 ## Run Instructions 
 
+There are two ways of running the Demo. 
+
+### 1) Using Launch File (Easier)
 After following the build instructions:
+Go to your workspace in terminal
+```
+source devel/setup.bash
+roslaunch beginner_tutorials week10.launch 
+```
+### 2) By running each node separately
+
+After following the build instructions:
+Go to your workspace in terminal
 
 Run roscore in a new terminal keeping path as your current workspace:
 ```
@@ -56,7 +68,3 @@ Finally run listener node from a new terminal keeping path as your current works
 source devel/setup.bash
 rosrun beginner_tutorials listener
 ```
-On running all the three code blocks above we will see the outputs as seen below.
-<p align="center">
-<img src="https://github.com/anirudhtopiwala/beginner_tutorials/blob/master/output.png">
-</p>
