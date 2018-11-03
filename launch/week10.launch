@@ -1,0 +1,15 @@
+<launch>
+ <node
+    name = "publisher"
+    pkg = "beginner_tutorials"
+    type = "talker"
+    output = "screen" 
+  />
+  <node
+    name = "subscriber"
+    pkg = "beginner_tutorials"
+    type = "listener"
+    output = "screen"
+    launch-prefix = "gnome-terminal -e"
+   />
+</launch>
