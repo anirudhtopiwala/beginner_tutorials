@@ -56,6 +56,32 @@ int main(int argc, char **argv) {
    */
   ros::NodeHandle n;
 
+  int f = 10 ;
+
+  /* setting the frequency value to the input/default frequency
+   * passed by launch file.
+   */
+
+  if (argc > 1) {
+      f = atoi(argv[1]);
+      ROS_DEBUG_STREAM(" Input entered is " << f);
+    }
+    // Warning if the frequency is less than 0
+  if (f < 0) {
+     ROS_ERROR_STREAM("Frequency cannot be negative");
+     f = 1;
+     ROS_WARN_STREAM("Frequency set to a small value of 1 HZ");
+   }
+   // Showing Fatal message if frequency is 0
+   if (f == 0) {
+     ROS_FATAL_STREAM("Frequency cannot be 0. Please launch again with valid inputs");
+     system("rosnode kill /listener");
+     system("rosnode kill /publisher");
+     ros::shutdown();
+     return 0;
+   }
+
+
   /**
    * The advertise() function is how you tell ROS that you want to
    * publish on a given topic name. This invokes a call to the ROS
@@ -77,7 +103,7 @@ int main(int argc, char **argv) {
 
   auto server = n.advertiseService("Change_String", changeString);
 
-  ros::Rate loop_rate(10);
+  ros::Rate loop_rate(f);
 
   /**
    * A count of how many messages we have sent. This is used to create
