@@ -20,7 +20,7 @@ To run this code in a catkin workspace:
 cd ~/catkin_ws/
 source devel/setup.bash
 cd src/
-git clone --recursive https://github.com/anirudhtopiwala/beginner_tutorials.git
+git clone -b Week10_HW --single-branch https://github.com/anirudhtopiwala/beginner_tutorials.git
 cd ..
 catkin_make
 ```
@@ -31,7 +31,7 @@ cd ~/catkin_ws/
 catkin_make
 source devel/setup.bash
 cd src/
-git clone --recursive https://github.com/anirudhtopiwala/beginner_tutorials.git
+git clone -b Week10_HW --single-branch https://github.com/anirudhtopiwala/beginner_tutorials.git
 cd ..
 catkin_make
 ```
@@ -40,13 +40,21 @@ catkin_make
 
 There are two ways of running the Demo. 
 
-### 1) Using Launch File (Easier)
+### 1) Using Launch File
+* **Without Changing the Default Frequency of talker**
 After following the build instructions:
 Go to your workspace in terminal
 ```
 source devel/setup.bash
 roslaunch beginner_tutorials week10.launch 
 ```
+* **By giving User Input to change the frequency of the talker node**
+Go to your workspace in terminal
+```
+source devel/setup.bash
+roslaunch beginner_tutorials week10.launch f:=<desired_frequency>
+```
+
 ### 2) By running each node separately
 
 After following the build instructions:
@@ -67,4 +75,12 @@ Finally run listener node from a new terminal keeping path as your current works
 ```
 source devel/setup.bash
 rosrun beginner_tutorials listener
+
+## How to call the service
+Follow either one of the run instructions, that is, using a launch file or running each node invidually. This will start both the talker and listener nodes. Now open a new terminal and go to the workspace.
+```
+source devel/setup.bash
+rosservice call /Change_String "input: '<any_string>'"
+``` 
+
 ```
