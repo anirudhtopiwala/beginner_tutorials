@@ -42,6 +42,7 @@ There are two ways of running the Demo.
 
 ### 1) Using Launch File
 * **Without Changing the Default Frequency of talker**
+
 After following the build instructions:
 Go to your workspace in terminal
 ```
@@ -49,6 +50,7 @@ source devel/setup.bash
 roslaunch beginner_tutorials week10.launch 
 ```
 * **By giving User Input to change the frequency of the talker node**
+
 Go to your workspace in terminal
 ```
 source devel/setup.bash
@@ -75,7 +77,7 @@ Finally run listener node from a new terminal keeping path as your current works
 ```
 source devel/setup.bash
 rosrun beginner_tutorials listener
-
+```
 ## How to call the service
 Follow either one of the run instructions, that is, using a launch file or running each node invidually. This will start both the talker and listener nodes. Now open a new terminal and go to the workspace.
 ```
@@ -83,4 +85,3 @@ source devel/setup.bash
 rosservice call /Change_String "input: '<any_string>'"
 ``` 
 
-```
