@@ -14,8 +14,7 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "beginner_tutorials/change_output_string.h"
-
-std::string text = "Before Changing String";
+extern std::string text = "Before Changing String";
 
 /**
  * @brief changestring
@@ -56,30 +55,31 @@ int main(int argc, char **argv) {
    */
   ros::NodeHandle n;
 
-  int f = 10 ;
+  int f = 10;
 
   /* setting the frequency value to the input/default frequency
    * passed by launch file.
    */
 
   if (argc > 1) {
-      f = atoi(argv[1]);
-      ROS_DEBUG_STREAM(" Input entered is " << f);
-    }
-    // Warning if the frequency is less than 0
+    f = atoi(argv[1]);
+    ROS_DEBUG_STREAM(" Input entered is " << f);
+  }
+  // Warning if the frequency is less than 0
   if (f < 0) {
-     ROS_ERROR_STREAM("Frequency cannot be negative");
-     f = 1;
-     ROS_WARN_STREAM("Frequency set to a small value of 1 HZ");
-   }
-   // Showing Fatal message if frequency is 0
-   if (f == 0) {
-     ROS_FATAL_STREAM("Frequency cannot be 0. Please launch again with valid inputs");
-     system("rosnode kill /listener");
-     system("rosnode kill /publisher");
-     ros::shutdown();
-     return 0;
-   }
+    ROS_ERROR_STREAM("Frequency cannot be negative");
+    f = 1;
+    ROS_WARN_STREAM("Frequency set to a small value of 1 HZ");
+  }
+  // Showing Fatal message if frequency is 0
+  if (f == 0) {
+    ROS_FATAL_STREAM("Frequency cannot be 0."
+      "Please launch again with valid inputs");
+    system("rosnode kill /listener");
+    system("rosnode kill /publisher");
+    ros::shutdown();
+    return 0;
+  }
 
 
   /**
@@ -117,7 +117,7 @@ int main(int argc, char **argv) {
     std_msgs::String msg;
 
     std::stringstream ss;
-    ss << "Original String" << count;
+    ss << text << count;
     msg.data = ss.str();
 
     ROS_INFO("%s", msg.data.c_str());
