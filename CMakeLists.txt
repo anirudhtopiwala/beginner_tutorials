@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   message_generation 
   genmsg
+  tf
 )
 
 ## Generate services in the 'srv' folder
