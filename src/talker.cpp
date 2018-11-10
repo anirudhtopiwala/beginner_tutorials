@@ -44,11 +44,13 @@
  *  This program defines the publisher
  *
  */
+#include <tf/transform_broadcaster.h>
+
 #include <sstream>
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "beginner_tutorials/change_output_string.h"
-extern std::string text = "Before Changing String";
+std::string text = "Before Changing String";
 
 /**
  * @brief changestring is a function to change the string being published.
@@ -144,12 +146,16 @@ int main(int argc, char **argv) {
    * a unique string for each message.
    */
   int count = 0;
+
+  //  Creating TransformBroadcaster and Transform objects 
+  tf::TransformBroadcaster br;
+  tf::Transform transform;
+
   while (ros::ok()) {
     /**
      * This is a message object. You stuff it with data, and then publish it.
      */
     std_msgs::String msg;
-
     std::stringstream ss;
     ss << text << count;
     msg.data = ss.str();
@@ -164,6 +170,22 @@ int main(int argc, char **argv) {
      */
     chatter_pub.publish(msg);
 
+    /**
+     * Setting the origin for the Transform object. 
+     * This sets the translation vector of the transform
+     */
+    transform.setOrigin(tf::Vector3(5.0, 10.0, 15.0));
+    
+    //Defining and Setting a value for the Quaternion
+    tf::Quaternion q;
+    q.setRPY(1.5, 0.8, 2*count);
+    transform.setRotation(q);
+
+    // braoadcasting the transform using Transformbroadcaster
+    br.sendTransform(tf::StampedTransform(transform,
+    ros::Time::now(), "world", "talk"));
+
+    // Updating all the topics 
     ros::spinOnce();
 
     loop_rate.sleep();
