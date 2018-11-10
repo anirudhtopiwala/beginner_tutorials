@@ -46,4 +46,5 @@
  *  "Static/global string variables are not permitted."
  *  
  */
+#include "std_msgs/String.h"
 std::string text = "Before Changing String";

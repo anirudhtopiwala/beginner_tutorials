@@ -48,7 +48,6 @@
 #include <globalstringinitialize.h>
 #include <sstream>
 #include "ros/ros.h"
-#include "std_msgs/String.h"
 #include "beginner_tutorials/change_output_string.h"
 
 /**
@@ -146,7 +145,7 @@ int main(int argc, char **argv) {
    */
   int count = 0;
 
-  //  Creating TransformBroadcaster and Transform objects 
+  // Creating TransformBroadcaster and Transform objects
   tf::TransformBroadcaster br;
   tf::Transform transform;
 
@@ -174,8 +173,7 @@ int main(int argc, char **argv) {
      * This sets the translation vector of the transform
      */
     transform.setOrigin(tf::Vector3(5.0, 10.0, 15.0));
-    
-    //Defining and Setting a value for the Quaternion
+    // Defining and Setting a value for the Quaternion
     tf::Quaternion q;
     q.setRPY(1.5, 0.8, 2*count);
     transform.setRotation(q);
@@ -184,7 +182,7 @@ int main(int argc, char **argv) {
     br.sendTransform(tf::StampedTransform(transform,
     ros::Time::now(), "world", "talk"));
 
-    // Updating all the topics 
+    // Updating all the topics
     ros::spinOnce();
 
     loop_rate.sleep();
