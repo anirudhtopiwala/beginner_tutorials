@@ -48,7 +48,6 @@
 #include <globalstringinitialize.h>
 #include <sstream>
 #include "ros/ros.h"
-#include "std_msgs/String.h"
 #include "beginner_tutorials/change_output_string.h"
 
 /**
