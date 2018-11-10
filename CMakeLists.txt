@@ -38,14 +38,11 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(
-# include
-  ${catkin_INCLUDE_DIRS}
-)
+include_directories( include ${catkin_INCLUDE_DIRS})
 
 
 ## Declare a C++ executable
-add_executable(talker src/talker.cpp)
+add_executable(talker src/talker.cpp )
 add_executable(listener src/listener.cpp)
 
 ## Specify libraries to link a library or executable target against
