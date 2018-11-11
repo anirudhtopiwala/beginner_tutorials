@@ -126,7 +126,7 @@ The above code will only work, if the talker node is active.
 A ros bag file records all the topic and messages being published in the terminal. The below code will record the bag file and save it in the results direcory as talker.bag .
 
 ```
-roslaunch beginner_tutorials Week11_HW.launch record:=enable
+ roslaunch beginner_tutorials week11.launch record:=enable
 ```
 
 ## Inspecting the Bag file generated
