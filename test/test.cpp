@@ -50,7 +50,6 @@
 #include <ros/service_client.h>
 #include <gtest/gtest.h>
 #include "beginner_tutorials/change_output_string.h"
-#include <tf/tf.h>
 /**
  * @brief      testing if the service exist and if its correcty changing the string
  *
@@ -60,9 +59,8 @@
  * @return     none
  */
 TEST(TESTSuite, testServiceCorrect) {
-	
-	// Creating NodeHandle
-  ros::NodeHandle nh;
+  // Creating NodeHandle
+      ros::NodeHandle nh;
 
   // Create a srv object for service Change_String
   auto clt =
@@ -76,8 +74,7 @@ TEST(TESTSuite, testServiceCorrect) {
 
 
   // checks if the service call works properly
-  bool success = clt.call(srv);	
-
+  bool success = clt.call(srv);
   EXPECT_TRUE(success);
 
   // compares the input and output string of the service
@@ -92,18 +89,12 @@ TEST(TESTSuite, testServiceCorrect) {
  * @return     none
  */
 TEST(TESTSuite, testBroadcaster) {
-	
-  // Creating NodeHandle
-  ros::NodeHandle nh;
-
- tf::TransformListener listener;
- tf::StampedTransform transform;
- listener.waitForTransform("/world", "/talk", ros::Time(0), ros::Duration(10));
- listener.lookupTransform("/world", "/talk", ros::Time(0), transform);
- 	
- auto x = transform.getOrigin().x();
- std::cout<< "x"<<x<<std::endl;
- EXPECT_EQ(x,5 );
-
-
+// Creating NodeHandle
+ros::NodeHandle nh;
+tf::TransformListener listener;
+tf::StampedTransform transform;
+listener.waitForTransform("/world", "/talk", ros::Time(0), ros::Duration(10));
+listener.lookupTransform("/world", "/talk", ros::Time(0), transform);
+auto x = transform.getOrigin().x();
+EXPECT_EQ(x, 5);
 }
