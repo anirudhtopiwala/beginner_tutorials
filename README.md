@@ -54,7 +54,7 @@ roslaunch beginner_tutorials week11.launch
 Go to your workspace in terminal
 ```
 source devel/setup.bash
-roslaunch beginner_tutorials week10.launch f:=<desired_frequency>
+roslaunch beginner_tutorials week11.launch f:=<desired_frequency>
 ```
 
 ### 2) By running each node separately
