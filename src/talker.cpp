@@ -45,11 +45,12 @@
  *
  */
 #include <tf/transform_broadcaster.h>
-#include <globalstringinitialize.h>
+// #include <globalstringinitialize.h>
 #include <sstream>
 #include "ros/ros.h"
 #include "beginner_tutorials/change_output_string.h"
-
+#include "std_msgs/String.h"
+extern std::string text = "Before Changing String";
 /**
  * @brief changestring is a function to change the string being published.
  * 
