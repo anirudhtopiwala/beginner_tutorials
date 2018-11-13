@@ -45,7 +45,6 @@
  *
  */
 #include <tf/transform_broadcaster.h>
-// #include <globalstringinitialize.h>
 #include <sstream>
 #include "ros/ros.h"
 #include "beginner_tutorials/change_output_string.h"
