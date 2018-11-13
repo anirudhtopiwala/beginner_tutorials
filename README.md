@@ -31,7 +31,7 @@ cd ~/catkin_ws/
 catkin_make
 source devel/setup.bash
 cd src/
-git clone -b Week10_HW --single-branch https://github.com/anirudhtopiwala/beginner_tutorials.git
+git clone -b Week11_HW --single-branch https://github.com/anirudhtopiwala/beginner_tutorials.git
 cd ..
 catkin_make
 ```
@@ -47,14 +47,14 @@ After following the build instructions:
 Go to your workspace in terminal
 ```
 source devel/setup.bash
-roslaunch beginner_tutorials week10.launch 
+roslaunch beginner_tutorials week11.launch 
 ```
 * **By giving User Input to change the frequency of the talker node**
 
 Go to your workspace in terminal
 ```
 source devel/setup.bash
-roslaunch beginner_tutorials week10.launch f:=<desired_frequency>
+roslaunch beginner_tutorials week11.launch f:=<desired_frequency>
 ```
 
 ### 2) By running each node separately
@@ -91,7 +91,7 @@ The tf broadcaster in the talker node will create a tf transform between the /wo
 ```
 rosrun tf tf_echo /world /talk
 ```
-To visualize this in a grah form, run the following command.
+To visualize this in a graph form, run the following command.
 ```
 rosrun rqt_tf_tree rqt_tf_tree 
 ```
