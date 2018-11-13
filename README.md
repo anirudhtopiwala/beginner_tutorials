@@ -91,7 +91,7 @@ The tf broadcaster in the talker node will create a tf transform between the /wo
 ```
 rosrun tf tf_echo /world /talk
 ```
-To visualize this in a grah form, run the following command.
+To visualize this in a graph form, run the following command.
 ```
 rosrun rqt_tf_tree rqt_tf_tree 
 ```
