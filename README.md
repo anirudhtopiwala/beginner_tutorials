@@ -31,7 +31,7 @@ cd ~/catkin_ws/
 catkin_make
 source devel/setup.bash
 cd src/
-git clone -b Week10_HW --single-branch https://github.com/anirudhtopiwala/beginner_tutorials.git
+git clone -b Week11_HW --single-branch https://github.com/anirudhtopiwala/beginner_tutorials.git
 cd ..
 catkin_make
 ```
@@ -47,7 +47,7 @@ After following the build instructions:
 Go to your workspace in terminal
 ```
 source devel/setup.bash
-roslaunch beginner_tutorials week10.launch 
+roslaunch beginner_tutorials week11.launch 
 ```
 * **By giving User Input to change the frequency of the talker node**
 
